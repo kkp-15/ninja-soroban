@@ -93,6 +93,61 @@
 .about{max-width:1050px;margin:8px auto 0;padding:18px 24px 0;line-height:1.8;font-size:15px;color:#5a4030}
 .about h2{font-size:18px;margin:0 0 6px;color:#4a3426}.about p{margin:6px 0}.about ul{margin:6px 0;padding-left:1.2em}
 @media(max-width:600px){.about{padding:14px 12px 0}}
+/* 2026-10-03 UI/UX指針（memory/feedback_uiux_checklist.md）: 余白を詰める・主な操作は下の固定バー・タップ44px以上 */
+.panel{padding:10px 14px}.tabs{margin:14px 0 10px}
+.question{margin:8px 0 4px}.hint{font-size:15px;line-height:1.55;min-height:0}
+.lessonStep p{line-height:1.55}.panel details p{line-height:1.6}details{margin:12px 0;line-height:1.6}
+#course{line-height:1.55;font-size:15px}#course p{margin:5px 0}#course h2{font-size:20px;margin:2px 0 4px;line-height:1.3}#course .lead{font-size:16px;margin:0 0 4px}#course .basis{margin:0 0 8px}
+.cNow{margin:8px 0}.cH{font-size:17px;margin:14px 0 4px}.cRow{padding:7px 0}.cActs{margin:8px 0}
+.cBtn,.smallBtn{min-height:44px}.smallBtn{padding:8px 12px}
+.cKind{padding:4px 0 8px}.cKind h3{font-size:17px;margin:6px 0 2px}.cKind ul{margin:2px 0 6px}.cKind li{margin:2px 0}
+.walkNow{font-size:16px;line-height:1.5;margin:4px 0!important}.walkGoal{font-size:15px;margin:2px 0!important}
+.linkBtn{background:none;color:#1a6fc4;text-decoration:underline;padding:10px 2px;min-height:44px;font-size:14px}
+.cTop{gap:6px 8px;margin-bottom:4px}.cTop .st b{color:#4a3426}
+.gTop{flex-wrap:nowrap}.gTop h2{margin:0!important;font-size:19px!important;white-space:nowrap}.gTop .cSeg{margin:0 0 0 auto;border-bottom:0;gap:0}.gTop .smallBtn{padding:8px 10px}
+.cSeg button{min-height:44px;padding:8px 10px}.gTop .cSeg button{padding:8px 7px}
+@media(max-width:340px){.gTop{flex-wrap:wrap}}
+.cKinds{margin:2px 0 4px!important}.cKinds button{min-height:44px}
+.pHead{margin:2px 0}.pHead .st b{color:#4a3426;font-size:15px}
+.how{border-left:3px solid #e8701f;background:#fff6ec;padding:5px 10px;margin:4px 0 6px!important;font-size:15px;line-height:1.45}.how .st{display:block;font-size:13px;margin-top:1px}
+.cQ{margin:4px 0}.tBar{gap:6px 10px}.tBar .cBtn{padding:8px 12px}.tNav{margin:2px 0}.tNav summary{padding:8px 0;min-height:44px;box-sizing:border-box}
+.qnav button{width:44px;height:44px}
+.readout #cClear{margin-left:auto;align-self:center}#cTime{font-size:16px}
+@media(max-width:600px) and (max-height:880px){.soroban{zoom:.9}}@media(min-width:601px) and (max-height:960px){.soroban{zoom:.92}}@media(max-height:640px){.soroban{zoom:.8}}
+/* はじめて（11レッスン）・暗算を詰める */
+body[data-mode="learn"] .panel{padding:6px 10px}#currentStep{margin:6px 0 2px;padding:6px 12px}#thinking{padding:2px 0 6px;margin-bottom:4px}#thinkReason{margin:2px 0 6px}
+#currentStep #stepTitle{margin:2px 0;font-size:19px}#currentStep #stepAction{margin:2px 0;font-size:16px}#currentStep .why summary{padding:4px 0 2px}
+#thinkProblem{font-size:21px}#mental .lessonStep{margin:6px 0;padding:8px 12px}#mental .exerciseTop{gap:6px 10px}#mental .lessonStep h3{margin:2px 0 4px}
+#mental details{margin:6px 0}#mentalRecord{margin:4px 0}
+/* みとり算は5口ずつ2列（1画面に問題とそろばんを収める） */
+.mitori.cols{display:block;min-width:0}.mitori.cols tbody{display:grid;grid-template-columns:auto auto;justify-content:start;column-gap:28px}
+.mitori.cols tr{display:flex;align-items:baseline}.mitori.cols th{width:1.8em;display:block}.mitori.cols td{display:block;min-width:2.6em}
+.mitori.cols tr.tot{border-top:2px solid #4a3426;margin-top:2px}.mitori.cols tr.tot th,.mitori.cols tr.tot td{border-top:0;height:auto}
+/* 下の固定バー */
+#dock{position:fixed;left:0;right:0;bottom:0;z-index:15;background:#fdf8f3;border-top:1px solid #e6d3c0;box-shadow:0 -2px 10px #4a342612;padding:8px max(10px,calc((100% - 1002px)/2)) calc(8px + env(safe-area-inset-bottom))}
+#dock.empty{height:0;padding:0;border:0;overflow:hidden;box-shadow:none}
+body.adOn #dock{position:static;box-shadow:none;background:none;border:0;padding:8px 0;margin-top:4px}
+#dock>.dk-board,#dock>.dk-learn,#dock>.dk-mental{display:none}
+body[data-mode="practice"] #dock>.dk-board,body[data-mode="free"] #dock>.dk-board{display:block}
+body[data-mode="learn"] #dock>.dk-learn{display:block}body[data-mode="mental"] #dock>.dk-mental{display:block}
+body:not([data-mode="course"]) #cDock{display:none!important}
+#dock .learnActions{position:static;padding:0;border:0;background:none;margin:0}
+#dock .actions{margin:0;gap:8px;flex-wrap:nowrap}#dock .actions button{padding:10px 12px}
+#dock #status{margin:0 0 6px;padding:6px 10px;min-height:0;font-size:15px;line-height:1.45}
+#dock #lessonFeedback{margin:0 0 6px;padding:6px 10px;font-size:15px;line-height:1.45}
+#dock #drillMental{margin:0 0 6px}#dock #drillMental input{font-size:22px;padding:8px 10px;min-height:48px}
+#dock #mentalFeedback{margin:0 0 6px;font-weight:700;font-size:15px}#dock #mentalFeedback:empty{display:none}
+#dock .freefields{flex-wrap:nowrap;gap:8px}#dock .freefields input{flex:1;min-width:0;width:auto;font-size:22px;padding:8px 10px;min-height:48px}#dock .freefields button{min-height:48px;min-width:8em}#mentalNext{background:#e8701f!important;color:#fff!important;font-weight:800}#mentalCheck:disabled{display:none}
+.dkRow{display:flex;gap:8px;align-items:center}.dkRow .cAns{flex:1;min-width:0;width:auto;max-width:16em;font-size:22px;min-height:48px;padding:6px 10px}
+.dkMain{margin-left:auto;min-width:8.2em;min-height:48px!important;font-size:17px;font-weight:800}.dkRow .cBtn{min-height:48px}.dkRow .cBtn:disabled{opacity:.4}
+.dkLab{font-weight:700;font-size:14px;white-space:nowrap}
+#cFb{margin:0 0 6px!important;font-weight:700;font-size:16px;line-height:1.4}#cFb:empty{display:none}#cFb.ok{color:#1d7a3a}#cFb.ng{color:#b03a1e}
+.miniWin{bottom:calc(var(--dockH,0px) + 14px)}
+@media(max-width:600px){.app{padding:10px 10px}.panel{padding:8px 10px}.tabs{margin:10px 0 8px!important}
+ .readout{padding:4px 4px 6px}
+ .dkMain{min-width:7.2em}#dock .actions button{padding:10px 8px;font-size:15px}}
+@media(max-width:340px){.dkMain{min-width:6.4em;font-size:16px}.dkRow{gap:6px}.dkRow .cBtn.sec{padding:8px 8px}}
+
 </style><div class="app"><header><div><div class="eyebrow">SOROBAN SPARK</div><h1>そろばんスパーク<span class="h1sub">無料のそろばん練習・<wbr>珠算検定10級〜7級</span></h1></div><button id="sound" aria-pressed="false">♪ 音 OFF</button></header><nav class="tabs" aria-label="モード"><button data-mode="course">検定の道</button><button class="active" data-mode="learn">はじめて</button><button data-mode="practice">れんしゅう</button><button data-mode="mental">暗算<span class="tabLong">・普段使い</span></button><button data-mode="free">自由<span class="tabLong">にさわる</span></button></nav><section class="panel"><div id="course" hidden></div><div id="mental" hidden><div class="exerciseTop"><label>珠のサポート <select id="mentalSupport"><option value="visible">1. 珠を見ながら</option><option value="hide">2. 見てから隠す</option><option value="none">3. 頭の中だけ</option></select></label><label>練習 <select id="mentalKind"><option value="basic">小さな数の足す・引く</option><option value="sum">買い物の合計</option><option value="change">お釣り</option><option value="multiply">同じ値段を複数買う</option><option value="divide">割り勘（余りなし）</option></select></label></div><div class="lessonStep"><h3 id="mentalQuestion"></h3><details class="why"><summary>ヒント</summary><p id="mentalCoach"></p></details><button id="hideBeads" style="padding:12px;border-radius:10px">珠を隠して考える</button><button id="showBeads" style="padding:12px;border-radius:10px" hidden>珠をもう一度見る</button></div><div class="freefields"><label for="mentalAnswer">答え</label><input id="mentalAnswer" type="number" min="0" inputmode="numeric" placeholder="数字を入力"><button id="mentalCheck" style="padding:12px;background:#e8701f;color:#fff;border-radius:10px">答えあわせ</button><button id="mentalNext" style="padding:12px;border-radius:10px" hidden>次の問題</button></div><p id="mentalFeedback" role="status"></p><p class="hint" id="mentalRecord"></p><details><summary>暗算へ進む目安</summary><p>まず「はじめて」で5・10を使う足し引きを、お手本なしでできるようにします。次に同じくらいの小さな数を、珠を見ながら→見て隠す→頭の中だけ、の順で練習。迷ったら一段戻って大丈夫です。5問連続正解は次の段階を試す目安で、習得を保証するものではありません。</p><p>毎日5分ほど、正確にできる範囲を繰り返しましょう。買い物では先に暗算し、レシートや電卓で確かめる練習ができます。このアプリでは整数を扱います。税込・割引・小数の計算はまだ対象外です。</p></details></div><div id="learn"><div class="exerciseTop"><label>レッスン <select id="lessonSelect" aria-label="レッスン"></select></label><span class="badge" id="progress"></span><button id="drillOpen" class="smallBtn" hidden>練習</button></div><details class="lessonIntro"><summary id="lessonTitle"></summary><p id="lessonIntro" class="hint"></p></details><div class="lessonStep" id="currentStep"><span id="stepCount" class="eyebrow"></span><div id="stepTrail" aria-label="手順の進み具合"></div><div id="thinking"><div id="thinkProblem"></div><p id="thinkReason"></p><div id="thinkPlan" aria-label="計算の手順"></div></div><h3 id="stepTitle"></h3><details class="why"><summary>なぜ？・詳しく見る</summary><p id="stepWhy"></p><p id="detailedAction"></p></details><p id="stepAction"></p></div><div class="learnActions" id="lessonControls"><button id="demo">お手本を見る</button><button id="retry">やり直す</button><button id="learnNext" disabled>次へ</button><button id="toDrill" hidden>同じ考え方で練習</button></div><div class="learnActions" id="drillControls" hidden><button id="drillHint">ヒント</button><button id="drillQuit">レッスンへ</button><button id="drillMain">答えあわせ</button></div><div id="drillMental" hidden><label for="drillAnswer">答え</label><input id="drillAnswer" type="number" min="0" inputmode="numeric" placeholder="数字を入力"></div><p id="lessonFeedback" role="status"></p></div><div id="practice" hidden><div class="exerciseTop"><div class="ops" aria-label="計算の種類"><button class="active" data-op="+">たす</button><button data-op="-">ひく</button><button data-op="×">かける</button><button data-op="÷">わる</button></div><select id="level" aria-label="難しさ"><option value="1">やさしい</option><option value="2">ふつう</option><option value="3">むずかしい</option></select></div><div class="question"><div class="formula" id="formula"></div><div class="badge" id="score">正解 0問<br>連続 0問</div></div><div class="hint" id="hint">そろばんに答えをつくろう。</div></div><div id="free" hidden><div class="freefields"><label for="setNumber">数を置く</label><input id="setNumber" type="number" min="0" max="9999999" value="0" inputmode="numeric"><button id="set" style="background:#e8701f;color:#fff;padding:11px 16px;border-radius:10px">珠にうつす</button></div><p class="hint">珠を自由に動かして、数のしくみをたしかめよう。</p></div></section><div class="readout"><div><span>いま</span><div class="number" id="value" aria-live="polite">0</div></div></div><div class="soroban" id="board" aria-label="7桁のそろばん"><div class="beam"></div></div><p class="instruction">タップでも上下スワイプでも動かせます。</p><div class="actions"><button id="reset">0にする</button><button id="help">ヒント</button><button class="primary" id="check">答えあわせ</button><button id="next" hidden>次のもんだい</button></div><div class="status" id="status" role="status">指で珠を動かしてみよう。</div><details id="reading"><summary>読み方・練習ガイドを読む</summary><p>右端が一の位。左へ十、百、千…と続きます。上の珠は1つで5、下の珠は1つで1。梁に寄せると数に入り、離すと数から外れます。</p><p>たし算・ひき算は、最初の数を置いてから珠を動かしても練習できます。かけ算・わり算は、計算した答えをそろばんに置いてください。ヒントで途中の考え方と答えの珠の置き方を確認できます。練習問題は整数・余りなしです。</p><button id="backToBoard" class="returnButton">そろばんに戻る</button></details><div class="kkp-ad" id="kkpAd" hidden><div class="kkp-ad-label">広告</div><ins class="adsbygoogle-later" style="display:block" data-ad-client="ca-pub-1298304917726270" data-ad-slot="2937937957" data-ad-format="rectangle" data-full-width-responsive="false"></ins></div></div><div class="miniWin" id="miniWin" aria-hidden="true">できた！</div><canvas id="confetti"></canvas><div class="toast" id="toast">大正解！</div>
 <section class="about"><h2>家でそろばんを独学できる、無料の練習サイト</h2>
 <p>塾に通わなくても、家で日本珠算連盟の10級〜7級の範囲を練習できます。模擬テストつき。登録は要りません。</p>
@@ -401,8 +456,8 @@ return{GRADES,ORDER,MINUS_AT,KIND_NAME,gen,mitori,kake,wari,makeTest,score,parse
 </script><script id="course-ui">
 // 検定の道（日珠連 10〜7級）: レベルチェック → 道のり → 各級の「学ぶ・練習・模擬テスト」
 const K=SorobanKentei,CKEY='soroban-course-v1';
-let cstore={check:null,stats:{},tests:[],learned:{}};
-try{let v=JSON.parse(localStorage.getItem(CKEY)||'{}');if(v&&typeof v==='object')cstore={check:v.check||null,stats:v.stats||{},tests:Array.isArray(v.tests)?v.tests:[],learned:v.learned||{}}}catch{}
+let cstore={check:null,stats:{},tests:[],learned:{},seen:{}};
+try{let v=JSON.parse(localStorage.getItem(CKEY)||'{}');if(v&&typeof v==='object')cstore={check:v.check||null,stats:v.stats||{},tests:Array.isArray(v.tests)?v.tests:[],learned:v.learned||{},seen:v.seen||{}}}catch{}
 function csave(){try{localStorage.setItem(CKEY,JSON.stringify(cstore))}catch{}}
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const cEl=$('#course');
@@ -415,6 +470,21 @@ const PLACE_REL=['一','十','百','千','万','十万','百万'];
 function setTeii(r){teiiRod=r;document.querySelectorAll('.rod').forEach((x,i)=>{x.classList.toggle('teii',i===r);let pl=x.querySelector('.place');if(pl)pl.textContent=r===null||r===6?places[i]:i<=r?PLACE_REL[r-i]:''});afterRender()}
 function afterRender(){let e=$('#teiiRead');if(!e)return;let on=mode==='course'&&teiiRod!==null&&teiiRod!==6;e.hidden=!on;if(on){let n=number(),v=n/10**(6-teiiRod);e.innerHTML=Number.isInteger(v)?`<span>定位点で読むと</span><b>${v.toLocaleString('ja-JP')}</b>`:'<span>答えは最後に定位点で読む</span>'}}
 function showBoard(on){board.hidden=!on;$('.readout').hidden=!on;$('.instruction').hidden=!on}
+// ---- 下の固定バー（答える・次へ を毎回同じ場所に） ----
+function dock(html){let d=$('#cDock');d.innerHTML=html;d.hidden=false;syncDock()}
+function dockOff(){let d=$('#cDock');if(d){d.innerHTML='';d.hidden=true;syncDock()}}
+function clearBtn(on){let b=$('#cClear');if(b)b.hidden=!on}
+// 画面のそろばんの数（定位点つき）を答えとして読む
+function boardAns(){let n=number(),v=teiiRod===4?n/100:n;return Number.isInteger(v)?v:null}
+function autoFill(el){if(el&&el.value.trim()===''&&number()!==0){let v=boardAns();if(v!==null)el.value=String(v)}}
+function focusAns(sel){if(matchMedia('(pointer:fine)').matches)try{$(sel).focus({preventScroll:true})}catch{}}
+// はじめての種目だけ、問題の上に「やり方」を1行
+function howLine(kind,btn,board){if(cstore.seen[kind])return'';
+ let t=kind==='mitori'?'1から順に全部たす（−の数は引く）':kind==='kake'?'そろばんでかけ算をする（置き方は「学ぶ」）':'そろばんでわり算をする（置き方は「学ぶ」）';
+ return`<p class="how"><b>やり方</b>　${t}→ 答えを入れて「${btn}」${board?'<span class="st">画面のそろばんで計算したら、入力しないで押しても読み取ります</span>':''}</p>`}
+// スマホでは問題の画面を毎回同じ位置に（タブとサイト名は上へ送る）
+function playView(){{let y=$('.panel').getBoundingClientRect().top+scrollY-4;if(Math.abs(scrollY-y)>2)window.scrollTo({top:y,behavior:'instant'})}}
+function seen(kind){if(!cstore.seen[kind]){cstore.seen[kind]=1;csave()}}
 // ---- 記録 ----
 function record(g,p,ok){const add=k=>{let s=cstore.stats[k]||{n:0,ok:0,last:[]};s.n++;if(ok)s.ok++;s.last=(s.last||[]).concat(ok?1:0).slice(-20);cstore.stats[k]=s};add(g+'|'+p.kind);if(p.kind==='mitori'&&p.minus)add(g+'|mitoriMinus');csave()}
 const STAT_NAME={mitori:'みとり算',mitoriMinus:'みとり算（ひき算あり）',kake:'かけ算',wari:'わり算'};
@@ -426,13 +496,13 @@ function lessonsDone(){return Array.isArray(completed)?completed.length:0}
 function target(){let top=nowLabel();if(top){let i=K.ORDER.indexOf(top);return i<K.ORDER.length-1?K.ORDER[i+1]:null}let c=cstore.check;if(c&&K.GRADES[c.rec])return c.rec;if(c&&c.rec==='test7')return'7';return'10'}
 function nowLabel(){let r=reached(),top=null;K.ORDER.forEach(g=>{if(r.has(g))top=g});return top}
 // ---- 画面のきりかえ ----
-function go(view,opt){stopTimer();walk=null;cview=view;opt=opt||{};if(opt.g)cgrade=opt.g;if(opt.sub)csub=opt.sub;setTeii(null);clearGuide();paint();window.scrollTo({top:0,behavior:'instant'})}
+function go(view,opt){stopTimer();walk=null;dockOff();clearBtn(false);cview=view;opt=opt||{};if(opt.g)cgrade=opt.g;if(opt.sub)csub=opt.sub;setTeii(null);clearGuide();window.scrollTo({top:0,behavior:'instant'});paint()}
 function paint(){if(cview==='home')paintHome();else if(cview==='check')paintCheck();else paintGrade()}
 // ---- ホーム（道のり） ----
 function rangeLine(g){const s=K.GRADES[g];
  if(s.same)return`みとり算10題（2けた5口）・かけ算20題（2けた×1けた）`;
  return g==='8'?'みとり算10題（2けた8口）・かけ算10題（3けた×1けた）・わり算10題（答え2けた）':'みとり算10題（2けた10口）・かけ算10題（2けた×2けた）・わり算10題（答え3けた）'}
-function paintHome(){showBoard(false);let tg=target(),now=nowLabel(),ld=lessonsDone(),chk=cstore.check;
+function paintHome(){showBoard(false);dockOff();let tg=target(),now=nowLabel(),ld=lessonsDone(),chk=cstore.check;
  let rec=chk?(chk.rec==='nyumon'?'入門（はじめて）から':chk.rec==='test7'?'7級の模擬テストから':K.GRADES[chk.rec].name+'から'):'';
  let rows=[`<div class="cRow ${ld<lessons.length&&(!chk||chk.rec==='nyumon')?'now':''}"><b>入門</b><div><div>珠の動かし方・5と10を使う足し引き（全11レッスン）</div><div class="st">${ld} / ${lessons.length} クリア</div></div><button class="cBtn sec" data-go="nyumon">開く</button></div>`];
  for(const g of K.ORDER){const s=K.GRADES[g],b=bestTest(g),r=reached().has(g);
@@ -460,17 +530,19 @@ function statsHtml(){let rows=[];for(const g of K.ORDER){if(g==='9')continue;for
  return rows.length?`<table class="cStats"><tbody>${rows.join('')}</tbody></table><p class="st">「苦手」は直近5問以上で正答率80%未満。その級の「学ぶ」から見直しましょう。</p>`:'<p class="st">まだ記録がありません。練習や模擬テストをすると、ここに出ます。</p>'}
 function bindGo(){cEl.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>{let v=b.dataset.go;if(v==='nyumon'){$('[data-mode="learn"]').click();return}if(v==='home')go('home');else if(v==='check')startCheck();else go('grade',{g:v,sub:b.dataset.sub||'learn'})})}
 // ---- 問題の表示 ----
-function probHtml(p,big){if(p.kind==='mitori')return`<table class="mitori ${big?'big':''}"><tbody>${p.nums.map((x,i)=>`<tr><th>${i+1}</th><td>${x<0?'−'+Math.abs(x):x}</td></tr>`).join('')}<tr class="tot"><th>計</th><td></td></tr></tbody></table>`;return`<div class="formula2">${K.text(p)} =</div>`}
+function probHtml(p,big){if(p.kind==='mitori'){let n=p.nums.length,cols=n>5,h=Math.ceil(n/2),pos=i=>cols?` style="grid-row:${i%h+1};grid-column:${Math.floor(i/h)+1}"`:'';
+  return`<table class="mitori ${big?'big':''} ${cols?'cols':''}"><tbody>${p.nums.map((x,i)=>`<tr${pos(i)}><th>${i+1}</th><td>${x<0?'−'+Math.abs(x):x}</td></tr>`).join('')}<tr class="tot"${cols?` style="grid-row:${h+1};grid-column:1 / span 2"`:''}><th>計</th><td></td></tr></tbody></table>`}return`<div class="formula2">${K.text(p)} =</div>`}
 function ansInput(id,val){return`<input id="${id}" class="cAns" type="text" inputmode="numeric" autocomplete="off" placeholder="答え" value="${esc(val||'')}" aria-label="答え">`}
 // ---- レベルチェック ----
-function startCheck(){stopTimer();cview='check';walk=null;setTeii(null);kcheck={secs:K.makeCheck(),si:0,ii:0,ok:[0],t0:Date.now(),done:false,log:[]};paint();window.scrollTo({top:0,behavior:'instant'});tick()}
-function paintCheck(){let c=kcheck;showBoard(!c.done);if(c.done){paintCheckResult();return}
+function startCheck(){stopTimer();cview='check';walk=null;setTeii(null);kcheck={secs:K.makeCheck(),si:0,ii:0,ok:[0],t0:Date.now(),done:false,log:[]};window.scrollTo({top:0,behavior:'instant'});paint();tick()}
+function paintCheck(){let c=kcheck;showBoard(!c.done);if(c.done){dockOff();clearBtn(false);paintCheckResult();return}
  let sec=c.secs[c.si],p=sec.items[c.ii],n=c.secs.slice(0,c.si).reduce((a,s)=>a+s.items.length,0)+c.ii+1;
- cEl.innerHTML=`<div class="cTop"><button class="smallBtn" data-go="home">道のりへ</button><span class="st">レベルチェック　${n}問目（${sec.label}）</span><span class="timer" id="cTime"></span></div>
-<p class="st">ふだんの力を見るためのチェックです。わからない問題は「わからない」で大丈夫。画面のそろばんも使えます。</p>
-<div class="cQ">${probHtml(p,true)}</div><div class="ansRow">${ansInput('cAns')}<button class="cBtn" id="cOk">答える</button><button class="smallBtn" id="cSkip">わからない</button></div><p id="cFb" role="status"></p>`;
- bindGo();$('#cOk').onclick=()=>answerCheck(false);$('#cSkip').onclick=()=>answerCheck(true);$('#cAns').onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();answerCheck(false)}};setNum(0);updTime()}
-function answerCheck(skip){let c=kcheck,sec=c.secs[c.si],p=sec.items[c.ii],raw=$('#cAns').value;
+ cEl.innerHTML=`<div class="cTop"><button class="smallBtn" data-go="home">← 道のり</button><span class="st">レベルチェック　<b>${n}問目</b></span><span class="timer" id="cTime"></span></div>
+${n<=2?`<p class="how"><b>やり方</b>　${p.kind==='mitori'?'1から順に全部たす':'計算する'}→ 答えを入れて「答える」。わからなければ「わからない」<span class="st">画面のそろばんで計算したら、入力しないで押しても読み取ります</span></p>`:''}
+<div class="cQ">${probHtml(p,true)}</div>`;
+ dock(`<p id="cFb" role="status"></p><div class="dkRow"><button class="cBtn sec" id="cSkip">わからない</button>${ansInput('cAns')}<button class="cBtn dkMain" id="cOk">答える</button></div>`);clearBtn(true);
+ bindGo();$('#cOk').onclick=()=>answerCheck(false);$('#cSkip').onclick=()=>answerCheck(true);$('#cAns').onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();answerCheck(false)}};setNum(0);updTime();focusAns('#cAns');playView()}
+function answerCheck(skip){let c=kcheck,sec=c.secs[c.si],p=sec.items[c.ii];if(!skip)autoFill($('#cAns'));let raw=$('#cAns').value;
  if(!skip&&raw.trim()===''){$('#cFb').textContent='答えを数字で入れてね。わからなければ「わからない」。';return}
  let ok=!skip&&K.parse(raw)===p.answer;if(ok)c.ok[c.si]++;c.log.push({sec:sec.key,ok});
  c.ii++;if(c.ii>=sec.items.length){if(c.ok[c.si]<2||c.si===c.secs.length-1){c.done=true;c.rec=K.recommend(c.ok);kga('level_check_complete',{rec:c.rec});cstore.check={date:today(),rec:c.rec,ok:c.ok,sec:Math.round((Date.now()-c.t0)/1000)};csave();stopTimer()}else{c.si++;c.ii=0;c.ok[c.si]=0}}
@@ -478,7 +550,7 @@ function answerCheck(skip){let c=kcheck,sec=c.secs[c.si],p=sec.items[c.ii],raw=$
 function paintCheckResult(){let c=kcheck,rec=c.rec,g=rec==='nyumon'?null:rec==='test7'?'7':rec;
  let lines=c.secs.slice(0,c.ok.length).map((s,i)=>`<tr><td>${s.label}</td><td>${c.ok[i]} / 3</td></tr>`).join('');
  let msg=rec==='nyumon'?'まずは「はじめて」のレッスンで、5と10を使う足し引きから。ここが土台です。':rec==='test7'?'7級の範囲まで解けました。7級の模擬テストで、時間内に解けるか試しましょう。':`${K.GRADES[rec].name}から始めるのがおすすめです。「学ぶ」で手順を確かめてから練習へ。`;
- cEl.innerHTML=`<div class="cTop"><button class="smallBtn" data-go="home">道のりへ</button><span class="st">レベルチェックの結果（${Math.max(1,Math.round((Date.now()-c.t0)/60000))}分）</span></div>
+ cEl.innerHTML=`<div class="cTop"><button class="smallBtn" data-go="home">← 道のり</button><span class="st">レベルチェックの結果（${Math.max(1,Math.round((Date.now()-c.t0)/60000))}分）</span></div>
 <h2>おすすめ：${rec==='nyumon'?'入門':rec==='test7'?'7級の模擬テスト':K.GRADES[rec].name}から</h2><p class="lead">${msg}</p>
 <table class="cStats"><tbody>${lines}</tbody></table><p class="st">3問中2問以上できた区切りは次へ進みました。</p>
 <div class="cActs">${rec==='nyumon'?'<button class="cBtn" data-go="nyumon">入門のレッスンへ</button>':`<button class="cBtn" data-go="${g}" data-sub="${rec==='test7'?'test':'learn'}">${K.GRADES[g].name}を開く</button>`}<button class="cBtn sec" data-go="home">道のりを見る</button></div>`;
@@ -491,87 +563,86 @@ function updTime(){let e=$('#cTime');if(cview==='check'&&kcheck&&!kcheck.done){i
  if(cview==='grade'&&csub==='test'&&ktest&&ktest.state==='run'){let left=(ktest.end-Date.now())/1000;if(e){e.textContent='残り '+fmt(left);e.classList.toggle('low',left<=120)}if(left<=0)finishTest(true)}}
 // ---- 級のページ ----
 function paintGrade(){const g=cgrade,s=K.GRADES[g];
- const subs=[['learn','学ぶ'],['practice','練習'],['test','模擬テスト']];
- cEl.innerHTML=`<div class="cTop"><button class="smallBtn" data-go="home">道のりへ</button><span class="st">日本珠算連盟の${s.name}の範囲に合わせた練習</span></div>
-<h2>${s.name}${s.same?`<span class="st">（${K.GRADES[s.same].name}と同じ問題）</span>`:''}</h2>
-<div class="cSeg" role="tablist">${subs.map(([k,l])=>`<button role="tab" data-sub="${k}" aria-selected="${csub===k}" class="${csub===k?'active':''}">${l}</button>`).join('')}</div><div id="cBody"></div>`;
+ const subs=[['learn','学ぶ'],['practice','練習'],['test','模擬テスト']];dockOff();clearBtn(false);
+ cEl.innerHTML=`<div class="cTop gTop"><button class="smallBtn" data-go="home">← 道のり</button><h2>${s.name}</h2>
+<div class="cSeg" role="tablist">${subs.map(([k,l])=>`<button role="tab" data-sub="${k}" aria-selected="${csub===k}" class="${csub===k?'active':''}">${l}</button>`).join('')}</div></div><div id="cBody"></div>`;
  bindGo();cEl.querySelectorAll('.cSeg [data-sub]').forEach(b=>b.onclick=()=>{stopTimer();if(ktest&&ktest.state==='run'&&b.dataset.sub!=='test'){if(!confirm('模擬テストをやめますか？（採点されません）'))return;ktest=null}walk=null;csub=b.dataset.sub;setTeii(null);clearGuide();paintGrade()});
  if(csub==='learn')paintLearn();else if(csub==='practice')paintPractice();else paintTest()}
 function gradeSummary(g){const s=K.GRADES[g];let w=s.wari;
- return`<p class="cInfo">${s.mitori.n}題 みとり算（${s.mitori.pts}点ずつ）・${s.kake.n}題 かけ算${w?`・${w.n}題 わり算`:''}（${s.kake.pts}点ずつ）。全部で${s.min}分、200点満点。${s.same?`120点以上で9級、60点以上で10級。`:`${s.pass}点以上で合格。`}</p>`}
+ return`<p class="st">日本珠算連盟の${s.name}の範囲に合わせた練習${s.same?`（${K.GRADES[s.same].name}と同じ問題）`:''}</p><p class="cInfo">${s.mitori.n}題 みとり算（${s.mitori.pts}点ずつ）・${s.kake.n}題 かけ算${w?`・${w.n}題 わり算`:''}（${s.kake.pts}点ずつ）。全部で${s.min}分、200点満点。${s.same?`120点以上で9級、60点以上で10級。`:`${s.pass}点以上で合格。`}</p>`}
 const HOW={
  mitori:g=>{const m=K.GRADES[g].mitori;return[`2けたの数が${m.kuchi}口。上から1口ずつ、前の答えに続けて足していきます。`,`10題のうち4題は、途中に「−」のついた数が${m.minus}口まじります（日珠連の問題見本と同じ数）。−の数は引きます。`,'2けたの数は、十の位→一の位の順に入れます。引くときも十の位から。','5や10を使う足し引きは「はじめて」のレッスン6〜9と同じ動きです。']},
  kake:g=>{const k=K.GRADES[g].kake;return[`${k.jitsu}けた×${k.hou}けたのかけ算。かけられる数を「実（じつ）」、かける数を「法（ほう）」と呼びます。`,'白い点（定位点）の棒を、答えの一の位にします。かけ算では右端です。',`実を、定位点から法のけた数だけ左の棒が一の位になるように置きます（法が${k.hou}けたなので${k.hou}つ左）。`,'実の一の位の数字から順に、その数字を覚えて払い、法の左の数字から順にかけた九九の答えを2けたで足します。1つ目の九九は払った棒から、2つ目はその1つ右の棒から。','実を全部払ったら、定位点を一の位にして答えを読みます。']},
  wari:g=>{const w=K.GRADES[g].wari;return[`わる数が1けた、答え（商）が${w.shou}けたのわり算。割り切れる問題です。わられる数を「実」、わる数を「法」と呼びます。`,'わり算では、白い点（定位点）を右から3本目にします。わられる数は、一の位が右端にくるように置きます（定位点から、法のけた数＋1＝2つ右）。','実の頭の数字と法を比べます。法の方が小さいか同じなら、商を頭の2つ左に立てます。法の方が大きければ、頭の2けたで考えて、すぐ左に立てます。','商×法の九九の答えを、商の右隣から2けたで引きます。残りがあれば、また頭から同じことをくり返します。','残りが0になったら、定位点を一の位にして商を読みます。定位点までの珠のない棒は0です。']}};
 const STYLE_NOTE='かけ算・わり算の置き方には流儀があり（両落とし・片落としなど）、教室によって違います。日本珠算連盟の公開資料は出題の範囲を決めていますが、置き方は決めていません。ここでは定位法の一例で教えます。教室に通っている人は、先生のやり方を優先してください。';
 function paintLearn(){const g=cgrade,body=$('#cBody');showBoard(!!walk);
- if(walk){paintWalk();return}
+ if(walk){paintWalk();return}dockOff();clearBtn(false);
  body.innerHTML=gradeSummary(g)+K.kinds(g).map(k=>`<section class="cKind"><h3>${K.KIND_NAME[k]}${cstore.learned[g+'|'+k]?'<span class="st">　手順を1回やった</span>':''}</h3><ul>${HOW[k](g).map(t=>`<li>${t}</li>`).join('')}</ul>${k!=='mitori'?`<p class="st">${STYLE_NOTE}</p>`:''}<button class="cBtn" data-walk="${k}">手順をそろばんでやってみる</button></section>`).join('')+`<div class="cActs"><button class="cBtn sec" data-sub2="practice">練習へ</button></div>`;
  body.querySelectorAll('[data-walk]').forEach(b=>b.onclick=()=>{let k=b.dataset.walk,p=k==='mitori'?K.mitori(4,1):K.gen(g,k);startWalk(p,'learn')});
  body.querySelector('[data-sub2]').onclick=()=>{csub='practice';paintGrade()}}
 // ---- 手順をそろばんで（学ぶ・練習の「手順で見る」） ----
 function startWalk(p,from){let S=K.steps(p);walk={p,S,k:0,from,shown:false};setNum(S.start);setTeii(S.teii);showBoard(true);paintWalk();$('#cBody').scrollIntoView({block:'start'})}
 function walkHint(st){if(st.rod===undefined)return'';try{let r=SorobanDrill.plan(number(),st.rod,st.v,st.minus);return'珠の動き：'+r.moves.map(m=>m.label).join(' → ')}catch{return''}}
-function paintWalk(){let w=walk,st=w.S.steps[w.k],done=w.k>=w.S.steps.length,body=$('#cBody');
+function paintWalk(){let w=walk,st=w.S.steps[w.k],done=w.k>=w.S.steps.length,body=$('#cBody');clearBtn(false);
  body.innerHTML=`<div class="walk"><div class="walkHead"><div class="cQ">${probHtml(w.p)}</div><div><div class="st">手順 ${Math.min(w.k+1,w.S.steps.length)} / ${w.S.steps.length}</div><div id="stepTrail2">${w.S.steps.map((_,i)=>`<span class="trailDot ${i<w.k?'done':i===w.k?'current':''}"></span>`).join('')}</div></div></div>
-${done?`<p class="walkNow"><b>できた！</b> 答えは ${w.p.answer.toLocaleString('ja-JP')}。${w.p.kind!=='mitori'?'定位点を一の位にして読みます。':''}</p>`:`<p class="walkNow">${esc(st.text)}</p><p class="st" id="walkHint">${w.shown?esc(walkHint(st)):''}</p><p class="st">めあて：光る枠の棒を動かして、「いま」の数を <b>${st.target.toLocaleString('ja-JP')}</b> にする</p>`}
-<div class="cActs">${done?`<button class="cBtn" id="wAgain">別の数でもう一度</button><button class="cBtn sec" id="wBack">${w.from==='practice'?'練習に戻る':'説明に戻る'}</button>`:`<button class="smallBtn" id="wDemo">お手本</button><button class="smallBtn" id="wHint">珠の動き</button><button class="smallBtn" id="wRe">最初から</button><button class="smallBtn" id="wBack">${w.from==='practice'?'練習に戻る':'説明に戻る'}</button>`}</div></div>`;
+${done?`<p class="walkNow"><b>できた！</b> 答えは ${w.p.answer.toLocaleString('ja-JP')}。${w.p.kind!=='mitori'?'定位点を一の位にして読みます。':''}</p>`:`<p class="walkNow">${esc(st.text)}</p><p class="walkGoal">光る枠の棒を動かして、「いま」を <b>${st.target.toLocaleString('ja-JP')}</b> にする${st.rod!==undefined?'　<button class="linkBtn" id="wHint">珠の動きを見る</button>':''}</p><p class="st" id="walkHint">${w.shown?esc(walkHint(st)):''}</p>`}</div>`;
+ const backLabel=w.from==='practice'?'練習に戻る':'説明に戻る';
+ dock(done?`<div class="dkRow"><button class="cBtn sec" id="wBack">${backLabel}</button><button class="cBtn dkMain" id="wAgain">別の数でもう一度</button></div>`:`<div class="dkRow"><button class="cBtn sec" id="wBack">${backLabel}</button><button class="cBtn sec" id="wRe">最初から</button><button class="cBtn sec dkMain" id="wDemo">お手本</button></div>`);
  clearGuide();if(!done)st.rods.forEach(r=>document.querySelectorAll('.rod')[r].classList.add('focusRod'));
  const back=()=>{let f=w.from;walk=null;setTeii(null);clearGuide();if(f==='practice'){csub='practice';paintGrade()}else paintLearn()};
  $('#wBack').onclick=back;
  if(done){$('#wAgain').onclick=()=>{let k=w.p.kind;startWalk(k==='mitori'?K.mitori(w.from==='practice'?K.GRADES[cgrade].mitori.kuchi:4,1):K.gen(cgrade,k),w.from)};return}
  $('#wDemo').onclick=()=>{setNum(st.target);walkAdvance()};
- $('#wHint').hidden=st.rod===undefined;$('#wHint').onclick=()=>{w.shown=true;$('#walkHint').textContent=walkHint(st)};
+ if($('#wHint'))$('#wHint').onclick=()=>{w.shown=true;$('#walkHint').textContent=walkHint(st)};
  $('#wRe').onclick=()=>{w.k=0;setNum(w.S.start);paintWalk()}}
 function walkAdvance(){let w=walk;w.k++;w.shown=false;if(w.k>=w.S.steps.length){cstore.learned[cgrade+'|'+w.p.kind]=true;csave();smallWin()}else smallWin();paintWalk()}
 function courseMove(){if(cview==='grade'&&walk&&walk.k<walk.S.steps.length){if(number()===walk.S.steps[walk.k].target)walkAdvance()}}
 // ---- 練習（5問1区切り） ----
-function paintPractice(){const g=cgrade,body=$('#cBody');if(walk){showBoard(true);paintWalk();return}
+function paintPractice(){const g=cgrade,body=$('#cBody');if(walk){showBoard(true);paintWalk();return}dockOff();
  if(!prac||prac.g!==g)prac={g,kind:'mitori',idx:0,res:[],p:null,state:'play'};
  if(!K.kinds(g).includes(prac.kind))prac.kind='mitori';
  if(!prac.p)prac.p=K.gen(g,prac.kind);
  let p=prac.p;showBoard(true);setTeii(p.kind==='kake'?6:p.kind==='wari'?4:null);
  body.innerHTML=`<div class="ops cKinds">${K.kinds(g).map(k=>`<button data-k="${k}" class="${prac.kind===k?'active':''}">${K.KIND_NAME[k]}</button>`).join('')}</div>
-<div class="pHead"><span class="st">${prac.state==='set'?'5問おわり':`${prac.idx+1} / 5 問`}</span><span>${[0,1,2,3,4].map(i=>`<span class="trailDot ${i<prac.res.length?(prac.res[i]?'done':'miss'):i===prac.idx?'current':''}"></span>`).join('')}</span></div>
-${prac.state==='set'?setHtml():`<div class="cQ">${probHtml(p,true)}</div>
-<div class="ansRow">${ansInput('pAns',prac.typed)}<button class="cBtn" id="pOk" ${prac.state!=='play'?'hidden':''}>答えあわせ</button><button class="smallBtn" id="pCopy" ${prac.state!=='play'?'hidden':''}>そろばんの数を入れる</button></div>
-<p id="cFb" role="status">${prac.msg||''}</p>
-<div class="cActs">${prac.state==='play'?`<button class="smallBtn" id="pClear">珠をはらう</button>`:`<button class="cBtn" id="pNext">${prac.idx>=4?'結果を見る':'次の問題'}</button>${prac.state==='wrong'?'<button class="cBtn sec" id="pWalk">手順で見る</button>':''}`}</div>`}`;
+<div class="pHead"><span class="st">${prac.state==='set'?'5問おわり':`<b>${prac.idx+1} / 5問</b>　${K.KIND_NAME[prac.kind]}`}</span><span>${[0,1,2,3,4].map(i=>`<span class="trailDot ${i<prac.res.length?(prac.res[i]?'done':'miss'):i===prac.idx?'current':''}"></span>`).join('')}</span></div>
+${prac.state==='set'?setHtml():`${howLine(p.kind,'答えあわせ',true)}<div class="cQ">${probHtml(p,true)}</div>`}`;
+ if(prac.state==='set')clearBtn(false);
+ else if(prac.state==='play'){dock(`<p id="cFb" role="status"></p><div class="dkRow"><label class="dkLab" for="pAns">答え</label>${ansInput('pAns',prac.typed)}<button class="cBtn dkMain" id="pOk">答えあわせ</button></div>`);clearBtn(true)}
+ else{dock(`<p id="cFb" role="status" class="${prac.state==='right'?'ok':'ng'}">${prac.msg||''}</p><div class="dkRow">${prac.state==='wrong'?'<button class="cBtn sec" id="pWalk">手順で見る</button>':''}<button class="cBtn dkMain" id="pNext">${prac.idx>=4?'結果を見る':'次の問題'}</button></div>`);clearBtn(false)}
  body.querySelectorAll('[data-k]').forEach(b=>b.onclick=()=>{prac={g,kind:b.dataset.k,idx:0,res:[],p:null,state:'play'};setNum(0);paintPractice()});
  if(prac.state==='set'){bindSet();return}
- if(prac.state==='play'){$('#pOk').onclick=checkPractice;$('#pAns').onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();checkPractice()}};$('#pClear').onclick=()=>setNum(0);$('#pCopy').onclick=()=>{let n=number(),v=teiiRod===4?n/100:n;$('#pAns').value=Number.isInteger(v)?v:''}}
- else{$('#pNext').onclick=nextPractice;if($('#pWalk'))$('#pWalk').onclick=()=>startWalk(prac.p,'practice')}}
-function checkPractice(){let raw=$('#pAns').value;if(raw.trim()===''){$('#cFb').textContent='答えを数字で入れてね。';return}
- let ok=K.parse(raw)===prac.p.answer;prac.typed=raw;prac.res.push(ok);record(prac.g,prac.p,ok);
- if(ok){prac.state='right';prac.msg=`正解！ ${prac.p.answer.toLocaleString('ja-JP')}`;smallWin()}else{prac.state='wrong';prac.msg=`答えは ${prac.p.answer.toLocaleString('ja-JP')}。「手順で見る」で珠の動きをたしかめよう。`;tone(180,.15)}
+ if(prac.state==='play'){$('#pOk').onclick=checkPractice;$('#pAns').onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();checkPractice()}};focusAns('#pAns');playView()}
+ else{$('#pNext').onclick=nextPractice;if($('#pWalk'))$('#pWalk').onclick=()=>startWalk(prac.p,'practice');if(matchMedia('(pointer:fine)').matches)try{$('#pNext').focus({preventScroll:true})}catch{}}}
+function checkPractice(){autoFill($('#pAns'));let raw=$('#pAns').value;if(raw.trim()===''){$('#cFb').textContent='答えを数字で入れてね。';return}
+ let ok=K.parse(raw)===prac.p.answer;prac.typed=raw;prac.res.push(ok);record(prac.g,prac.p,ok);seen(prac.p.kind);
+ if(ok){prac.state='right';prac.msg=`正解！ ${prac.p.answer.toLocaleString('ja-JP')}`;smallWin()}else{prac.state='wrong';prac.msg=`ちがいます。あなたの答え ${esc(raw.trim())} → 正しくは ${prac.p.answer.toLocaleString('ja-JP')}`;tone(180,.15)}
  paintPractice()}
 function nextPractice(){prac.idx++;prac.typed='';prac.msg='';if(prac.idx>=5){prac.state='set';kga('practice_set_end',{grade:prac.g,kind:prac.kind,ok:prac.res.filter(Boolean).length})}else{prac.state='play';prac.p=K.gen(prac.g,prac.kind);setNum(0)}paintPractice()}
 function setHtml(){let ok=prac.res.filter(Boolean).length;return`<p class="walkNow"><b>5問中 ${ok}問 正解。</b>${ok>=4?'この調子。ほかの種目や模擬テストも試そう。':ok>=2?'もう5問やってみよう。間違えた問題は「手順で見る」で。':'「学ぶ」に戻って、手順をもう一度たしかめよう。'}</p><div class="cActs"><button class="cBtn" id="pMore">もう5問</button>${ok>=4?'<button class="cBtn sec" id="pTest">模擬テストへ</button>':'<button class="cBtn sec" id="pLearn">学ぶへ</button>'}</div>`}
 function bindSet(){$('#pMore').onclick=()=>{prac={g:prac.g,kind:prac.kind,idx:0,res:[],p:null,state:'play'};setNum(0);paintPractice()};if($('#pTest'))$('#pTest').onclick=()=>{csub='test';paintGrade()};if($('#pLearn'))$('#pLearn').onclick=()=>{csub='learn';paintGrade()}}
 // ---- 模擬テスト ----
 function paintTest(){const g=cgrade,s=K.GRADES[g],body=$('#cBody');
- if(!ktest||ktest.g!==g||ktest.state==='ready'){ktest={g,state:'ready'};showBoard(false);let b=bestTest(g);
-  body.innerHTML=gradeSummary(g)+`<p>本番と同じ題数・時間・配点で、問題は毎回自動で作ります。どの問題から解いてもかまいません。画面のそろばんでも、家のそろばんでも。</p>${b!==null?`<p class="st">これまでの最高：${b}点</p>`:''}<div class="cActs"><button class="cBtn" id="tStart">${s.min}分で始める</button></div><p class="st">点数は練習の目安です。本番の合格を約束するものではありません。</p>`;
+ if(!ktest||ktest.g!==g||ktest.state==='ready'){ktest={g,state:'ready'};showBoard(false);dockOff();clearBtn(false);let b=bestTest(g);
+  body.innerHTML=gradeSummary(g)+`<p>本番と同じ題数・時間・配点。問題は毎回ちがいます。どの問題から解いてもOK。</p>${b!==null?`<p class="st">これまでの最高：${b}点</p>`:''}<div class="cActs"><button class="cBtn" id="tStart">${s.min}分で始める</button></div><p class="st">点数は練習の目安です。本番の合格を約束するものではありません。</p>`;
   $('#tStart').onclick=()=>{let T=K.makeTest(g);kga('mock_test_start',{grade:g});ktest={g,state:'run',T,ans:[],cur:0,end:Date.now()+T.min*60000};setNum(0);paintTest();tick();updTime()};return}
- if(ktest.state==='done'){paintResult();return}
+ if(ktest.state==='done'){dockOff();clearBtn(false);paintResult();return}
  if(!ktimer)tick();let T=ktest.T,p=T.items[ktest.cur],sec=T.sections.find(x=>ktest.cur>=x.from&&ktest.cur<x.to);showBoard(true);setTeii(p.kind==='kake'?6:p.kind==='wari'?4:null);
  let answered=ktest.ans.filter(v=>v&&String(v).trim()!=='').length;
- body.innerHTML=`<div class="tBar"><span class="timer" id="cTime"></span><span class="st" id="tCount">${answered} / ${T.items.length} 題に答えた</span><button class="cBtn" id="tEnd">採点する</button></div>
-<details class="tNav"><summary>No.${p.no}　${sec.label}（${p.pts}点）　問題の一覧</summary><div class="qnav">${T.items.map((q,i)=>`<button data-q="${i}" class="${i===ktest.cur?'cur':''} ${ktest.ans[i]&&String(ktest.ans[i]).trim()?'ans':''}" aria-label="No.${q.no}">${q.no}</button>`).join('')}</div></details>
-<div class="cQ">${probHtml(p,true)}</div><div class="ansRow">${ansInput('tAns',ktest.ans[ktest.cur])}<button class="smallBtn" id="tCopy">そろばんの数を入れる</button></div>
-<div class="cActs"><button class="smallBtn" id="tPrev" ${ktest.cur?'':'disabled'}>前へ</button><button class="cBtn" id="tNext">${ktest.cur<T.items.length-1?'次へ':'最初へ'}</button><button class="smallBtn" id="tClear">珠をはらう</button></div>`;
- const keep=()=>{ktest.ans[ktest.cur]=$('#tAns').value;let c=$('#tCount');if(c)c.textContent=`${ktest.ans.filter(v=>v&&String(v).trim()).length} / ${T.items.length} 題に答えた`},goQ=i=>{keep();ktest.cur=i;setNum(0);paintTest()};
+ body.innerHTML=`<div class="tBar"><span class="timer" id="cTime"></span><span class="st" id="tCount">${answered} / ${T.items.length} 題に答えた</span><button class="cBtn sec" id="tEnd">採点する</button></div>
+<details class="tNav"><summary><b>No.${p.no}</b> / ${T.items.length}　${sec.label}（${p.pts}点）<span class="st">　一覧</span></summary><div class="qnav">${T.items.map((q,i)=>`<button data-q="${i}" class="${i===ktest.cur?'cur':''} ${ktest.ans[i]&&String(ktest.ans[i]).trim()?'ans':''}" aria-label="No.${q.no}">${q.no}</button>`).join('')}</div></details>
+${howLine(p.kind,'次へ',true)}<div class="cQ">${probHtml(p,true)}</div>`;
+ dock(`<div class="dkRow"><button class="cBtn sec" id="tPrev" ${ktest.cur?'':'disabled'}>前へ</button>${ansInput('tAns',ktest.ans[ktest.cur])}<button class="cBtn dkMain" id="tNext">${ktest.cur<T.items.length-1?'次へ':'最初へ'}</button></div>`);clearBtn(true);
+ const keep=fill=>{if(fill===true)autoFill($('#tAns'));ktest.ans[ktest.cur]=$('#tAns').value;let c=$('#tCount');if(c)c.textContent=`${ktest.ans.filter(v=>v&&String(v).trim()).length} / ${T.items.length} 題に答えた`},goQ=i=>{keep(true);ktest.cur=i;setNum(0);paintTest()};
  $('#tAns').oninput=keep;$('#tAns').onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();$('#tNext').click()}};
- $('#tPrev').onclick=()=>goQ(ktest.cur-1);$('#tNext').onclick=()=>goQ((ktest.cur+1)%T.items.length);$('#tClear').onclick=()=>setNum(0);
- $('#tCopy').onclick=()=>{let n=number(),v=teiiRod===4?n/100:n;$('#tAns').value=Number.isInteger(v)?v:'';keep()};
+ $('#tPrev').onclick=()=>goQ(ktest.cur-1);$('#tNext').onclick=()=>goQ((ktest.cur+1)%T.items.length);
  body.querySelectorAll('[data-q]').forEach(b=>b.onclick=()=>goQ(+b.dataset.q));
- $('#tEnd').onclick=()=>{keep();let left=T.items.length-ktest.ans.filter(v=>v&&String(v).trim()).length;if(left&&!confirm(`まだ ${left} 題、答えていません。採点しますか？`))return;finishTest(false)};
- updTime();if(document.activeElement===document.body)try{$('#tAns').focus({preventScroll:true})}catch{}}
+ $('#tEnd').onclick=()=>{keep(true);let left=T.items.length-ktest.ans.filter(v=>v&&String(v).trim()).length;if(left&&!confirm(`まだ ${left} 題、答えていません。採点しますか？`))return;finishTest(false)};
+ updTime();focusAns('#tAns');playView()}
 function finishTest(timeUp){if(!ktest||ktest.state!=='run')return;stopTimer();let e=$('#tAns');if(e&&cview==='grade'&&csub==='test')ktest.ans[ktest.cur]=e.value;
  let T=ktest.T,r=K.score(T,ktest.ans);ktest.state='done';ktest.r=r;ktest.timeUp=timeUp;kga('mock_test_finish',{grade:ktest.g,score:r.total,passed:r.passed?1:0,reached:(r.reached||[]).join(','),time_up:timeUp?1:0});ktest.used=Math.min(T.min*60,Math.round((Date.now()-(ktest.end-T.min*60000))/1000));
- T.items.forEach((p,i)=>{if(String(ktest.ans[i]||'').trim()!=='')record(ktest.g,p,r.right[i])});
+ T.items.forEach((p,i)=>{if(String(ktest.ans[i]||'').trim()!==''){record(ktest.g,p,r.right[i]);seen(p.kind)}});
  cstore.tests.push({g:ktest.g,date:today(),total:r.total,reached:r.reached,secs:r.sections.map(s=>s.got),timeUp});cstore.tests=cstore.tests.slice(-30);csave();
- setTeii(null);if(r.passed){celebrate();$('#toast').textContent='合格点に届いた！'}if(cview==='grade'&&csub==='test')paintTest()}
+ setTeii(null);dockOff();clearBtn(false);if(r.passed){celebrate();$('#toast').textContent='合格点に届いた！'}if(cview==='grade'&&csub==='test')paintTest()}
 function paintResult(){let t=ktest,r=t.r,T=t.T,s=K.GRADES[t.g],body=$('#cBody');showBoard(false);
  let judge=s.same?(r.reached.includes('9')?'9級の合格点（120点）に届きました。':r.reached.includes('10')?'10級の合格点（60点）に届きました。9級は120点。':'10級の合格点（60点）まで、あと'+(60-r.total)+'点。'):(r.passed?`${s.name}の合格点（${s.pass}点）に届きました。`:`合格点（${s.pass}点）まで、あと${s.pass-r.total}点。`);
  let wrong=T.items.map((p,i)=>({p,i})).filter(x=>!r.right[x.i]);
@@ -582,8 +653,25 @@ ${wrong.length?`<h3 class="cH">まちがえた・答えていない問題</h3><t
 <div class="cActs"><button class="cBtn" id="tAgain">もう一度（別の問題）</button><button class="cBtn sec" data-go="home">道のりへ</button></div>`;
  bindGo();$('#tAgain').onclick=()=>{ktest=null;paintTest()};
  body.querySelectorAll('[data-w]').forEach(b=>b.onclick=()=>{let p=T.items[+b.dataset.w];csub='learn';paintGrade();startWalk(p,'learn')})}
+// ---- 下の固定バー（全タブ共通。主な操作を親指の届く場所に、毎回同じ位置で） ----
+function syncDock(){let d=$('#dock');if(!d)return;let on=[...d.children].some(c=>c.offsetHeight>0);if(d.classList.contains('empty')===on)d.classList.toggle('empty',!on);
+ let h=on&&!document.body.classList.contains('adOn')?d.offsetHeight:0;document.body.style.paddingBottom=h?h+'px':'';document.documentElement.style.setProperty('--dockH',h+'px')}
+(function(){const d=document.createElement('div');d.id='dock';
+ const mk=(cls,els)=>{let w=document.createElement('div');w.className=cls;els.forEach(e=>e&&w.append(e));d.append(w)};
+ mk('dk-board',[$('#status'),$('.actions')]);
+ mk('dk-learn',[$('#lessonFeedback'),$('#drillMental'),$('#lessonControls'),$('#drillControls')]);
+ mk('dk-mental',[$('#mentalFeedback'),$('#mental .freefields')]);
+ let c=document.createElement('div');c.id='cDock';c.hidden=true;d.append(c);
+ $('.instruction').after(d);
+ $('.readout').insertAdjacentHTML('beforeend','<button id="cClear" class="smallBtn" hidden>珠をはらう</button>');$('#cClear').onclick=()=>setNum(0);
+ let t;const later=()=>{clearTimeout(t);t=setTimeout(syncDock,0)};
+ new MutationObserver(later).observe(d,{subtree:true,childList:true,attributes:true,attributeFilter:['hidden','disabled']});
+ if(window.ResizeObserver)new ResizeObserver(later).observe(d);
+ document.addEventListener('click',later);window.addEventListener('resize',later);
+ const ad=$('#kkpAd');if(ad)new MutationObserver(()=>{document.body.classList.toggle('adOn',!ad.hidden);later()}).observe(ad,{attributes:true,attributeFilter:['hidden']});
+ syncDock()})();
 // ---- タブ ----
-document.querySelectorAll('.tabs [data-mode]').forEach(el=>el.addEventListener('click',()=>{let on=mode==='course';cEl.hidden=!on;$('#status').hidden=on;if(!on){stopTimer();setTeii(null);walk=null;return}
+document.querySelectorAll('.tabs [data-mode]').forEach(el=>el.addEventListener('click',()=>{let on=mode==='course';cEl.hidden=!on;$('#status').hidden=on;if(!on){stopTimer();setTeii(null);walk=null;dockOff();clearBtn(false);return}
  $('.actions').hidden=true;$('#lessonFeedback').hidden=true;if(cview==='grade'&&csub==='test'&&ktest&&ktest.state==='run'){paint();tick()}else{walk=null;paint();if(cview==='check'&&kcheck&&!kcheck.done)tick()}}));
 if(window.__soroban)window.__soroban.course={K,get store(){return cstore},get test(){return ktest},get walk(){return walk},go,startCheck,finishTest,startWalk};
 $('[data-mode="course"]').click();
