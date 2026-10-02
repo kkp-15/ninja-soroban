@@ -598,7 +598,7 @@ function resultShown(){try{
  }catch(e){}return false}
 function load(){if(loaded)return;loaded=true;var sc=document.createElement('script');sc.async=true;sc.crossOrigin='anonymous';sc.src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1298304917726270';document.head.appendChild(sc)}
 function sync(){var on=resultShown();if(box.hidden===!on)return;box.hidden=!on;
- if(on&&!pushed){pushed=true;load();requestAnimationFrame(function(){var ins=box.querySelector('ins');ins.className='adsbygoogle';try{(window.adsbygoogle=window.adsbygoogle||[]).push({})}catch(e){}})}}
+ if(on&&!pushed){pushed=true;load();setTimeout(function(){var ins=box.querySelector('ins');ins.className='adsbygoogle';try{(window.adsbygoogle=window.adsbygoogle||[]).push({})}catch(e){}},50)}}
 var t;function later(){clearTimeout(t);t=setTimeout(sync,60)}
 document.addEventListener('click',later,true);document.addEventListener('click',later);
 new MutationObserver(later).observe(document.querySelector('.panel'),{childList:true,subtree:true});
