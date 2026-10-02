@@ -2,7 +2,12 @@
 import re,subprocess,sys,tempfile,os
 s=open(sys.argv[1] if len(sys.argv)>1 else 'index.html').read()
 bad=0
-for i,m in enumerate(re.findall(r'<script[^>]*>([\s\S]*?)</script>',s)):
+import json
+for i,(attrs,m) in enumerate(re.findall(r'<script([^>]*)>([\s\S]*?)</script>',s)):
+    if 'ld+json' in attrs:
+        try:json.loads(m);print(f'script {i}: JSON-LD OK')
+        except Exception as e:print(f'script {i}: JSON-LD NG',e);bad+=1
+        continue
     f=tempfile.NamedTemporaryFile('w',suffix='.js',delete=False);f.write(m);f.close()
     r=subprocess.run(['node','--check',f.name],capture_output=True,text=True);os.unlink(f.name)
     print(f'script {i}:','OK' if r.returncode==0 else 'NG\n'+r.stderr[:400]);bad+=r.returncode!=0

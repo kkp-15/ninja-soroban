@@ -1,0 +1,23 @@
+name: Deploy to Cloudflare Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Remove non-public files
+        # Pages の deploy は .assetsignore を見ないので、配信しないファイルはここで消す
+        # 生成スクリプト・テスト・作業メモを置いたら、ここに足す（ページから参照していないことを確認してから）
+        run: rm -rf ./*.md .claude .github .gitignore .assetsignore wrangler.jsonc .wrangler tests _dev
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: "4.85.0"
+          command: pages deploy . --project-name=ninja-soroban --branch=main --commit-dirty=true
