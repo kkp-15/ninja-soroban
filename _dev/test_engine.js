@@ -25,9 +25,10 @@ for(let li=0;li<SorobanDrill.count;li++){const seen=new Set();let tagsSeen=new S
  summary.push(`L${li+1}: 100問OK 種類${seen.size} 方法[${[...tagsSeen]}] 例: ${[...seen].slice(0,4).join(' / ')}`)}
 console.log(summary.join('\n'));console.log(bad?'FAIL '+bad:'ALL PASS (11レッスン×100問)');
 // ---- 検定（日珠連 10〜7級）の問題・手順・採点 ----
-const km=src.match(/<script id="kentei-engine">([\s\S]*?)<\/script>/);
-if(!km){console.log('kentei-engine なし');process.exit(1)}
-const K=new Function(km[1]+';return SorobanKentei')();
+// 検定エンジンは kentei.js（index.html と /print/ で共通）
+const kpath=require('path').join(require('path').dirname(process.argv[2]),'kentei.js');
+if(!fs.existsSync(kpath)){console.log('kentei.js なし');process.exit(1)}
+const K=new Function(fs.readFileSync(kpath,'utf8')+';return SorobanKentei')();
 let kbad=0;const NG=(...a)=>{kbad++;if(kbad<30)console.log('NG',...a)};
 const D=n=>String(Math.abs(n)).length,digs=n=>String(n).padStart(7,'0').split('').map(Number);
 // 範囲の独立チェック（出典: 日珠連 基本的考え方・問題見本）

@@ -172,6 +172,7 @@ body:not([data-mode="course"]) #cDock{display:none!important}
 .soroban .place{font-size:17.5px;line-height:1.1;top:271px}
 #learn .badge,#stepCount{font-size:14px}
 .how .st{color:#6b5240}
+.cPrint{margin:6px 0 2px}.cPrint a{display:inline-block;padding:10px 0;min-height:44px;color:#b04e0c;font-weight:700}
 </style></head><body><div class="app"><header><div><div class="eyebrow">SOROBAN SPARK</div><h1>そろばんスパーク<span class="h1sub">無料のそろばん練習・<wbr><span style="white-space:nowrap">珠算検定10級〜7級</span></span></h1></div><button id="sound" aria-pressed="false">♪ 音 OFF</button></header><nav class="tabs" aria-label="モード"><button data-mode="course">検定の道</button><button class="active" data-mode="learn">はじめて</button><button data-mode="practice">れんしゅう</button><button data-mode="mental">暗算<span class="tabLong">・普段使い</span></button><button data-mode="free">自由<span class="tabLong">にさわる</span></button></nav><section class="panel"><div id="course" hidden></div><div id="mental" hidden><div class="exerciseTop"><label>珠のサポート <select id="mentalSupport"><option value="visible">1. 珠を見ながら</option><option value="hide">2. 見てから隠す</option><option value="none">3. 頭の中だけ</option></select></label><label>練習 <select id="mentalKind"><option value="basic">小さな数の足す・引く</option><option value="sum">買い物の合計</option><option value="change">お釣り</option><option value="multiply">同じ値段を複数買う</option><option value="divide">割り勘（余りなし）</option></select></label></div><div class="lessonStep"><h3 id="mentalQuestion"></h3><details class="why"><summary>ヒント</summary><p id="mentalCoach"></p></details><button id="hideBeads" style="padding:12px;border-radius:10px">珠を隠して考える</button><button id="showBeads" style="padding:12px;border-radius:10px" hidden>珠をもう一度見る</button></div><div class="freefields"><label for="mentalAnswer">答え</label><input id="mentalAnswer" type="number" min="0" inputmode="numeric" placeholder="数字を入力"><button id="mentalCheck" style="padding:12px;background:#e8701f;color:#fff;border-radius:10px">答えあわせ</button><button id="mentalNext" style="padding:12px;border-radius:10px" hidden>次の問題</button></div><p id="mentalFeedback" role="status"></p><p class="hint" id="mentalRecord"></p><details><summary>暗算へ進む目安</summary><p>まず「はじめて」で5・10を使う足し引きを、お手本なしでできるようにします。次に同じくらいの小さな数を、珠を見ながら→見て隠す→頭の中だけ、の順で練習。迷ったら一段戻って大丈夫です。5問連続正解は次の段階を試す目安で、習得を保証するものではありません。</p><p>毎日5分ほど、正確にできる範囲を繰り返しましょう。買い物では先に暗算し、レシートや電卓で確かめる練習ができます。このアプリでは整数を扱います。税込・割引・小数の計算はまだ対象外です。</p></details></div><div id="learn"><div class="exerciseTop"><label>レッスン <select id="lessonSelect" aria-label="レッスン"></select></label><span class="badge" id="progress"></span><button id="drillOpen" class="smallBtn" hidden>練習</button></div><details class="lessonIntro"><summary id="lessonTitle"></summary><p id="lessonIntro" class="hint"></p></details><div class="lessonStep" id="currentStep"><span id="stepCount" class="eyebrow"></span><div id="stepTrail" aria-label="手順の進み具合"></div><div id="thinking"><div id="thinkProblem"></div><p id="thinkReason"></p><div id="thinkPlan" aria-label="計算の手順"></div></div><h3 id="stepTitle"></h3><details class="why"><summary>なぜ？・詳しく見る</summary><p id="stepWhy"></p><p id="detailedAction"></p></details><p id="stepAction"></p></div><div class="learnActions" id="lessonControls"><button id="demo">お手本を見る</button><button id="retry">やり直す</button><button id="learnNext" disabled>次へ</button><button id="toDrill" hidden>同じ考え方で練習</button></div><div class="learnActions" id="drillControls" hidden><button id="drillHint">ヒント</button><button id="drillQuit">レッスンへ</button><button id="drillMain">答えあわせ</button></div><div id="drillMental" hidden><label for="drillAnswer">答え</label><input id="drillAnswer" type="number" min="0" inputmode="numeric" placeholder="数字を入力"></div><p id="lessonFeedback" role="status"></p></div><div id="practice" hidden><div class="exerciseTop"><div class="ops" aria-label="計算の種類"><button class="active" data-op="+">たす</button><button data-op="-">ひく</button><button data-op="×">かける</button><button data-op="÷">わる</button></div><select id="level" aria-label="難しさ"><option value="1">やさしい</option><option value="2">ふつう</option><option value="3">むずかしい</option></select></div><div class="question"><div class="formula" id="formula"></div><div class="badge" id="score">正解 0問<br>連続 0問</div></div><div class="hint" id="hint">そろばんに答えをつくろう。</div></div><div id="free" hidden><div class="freefields"><label for="setNumber">数を置く</label><input id="setNumber" type="number" min="0" max="9999999" value="0" inputmode="numeric"><button id="set" style="background:#e8701f;color:#fff;padding:11px 16px;border-radius:10px">珠にうつす</button></div><p class="hint">珠を自由に動かして、数のしくみをたしかめよう。</p></div></section><div class="readout"><div><span>いま</span><div class="number" id="value" aria-live="polite">0</div></div></div><div class="soroban" id="board" aria-label="7桁のそろばん"><div class="beam"></div></div><p class="instruction">タップでも上下スワイプでも動かせます。</p><div class="actions"><button id="reset">0にする</button><button id="help">ヒント</button><button class="primary" id="check">答えあわせ</button><button id="next" hidden>次のもんだい</button></div><div class="status" id="status" role="status">指で珠を動かしてみよう。</div><details id="reading"><summary>読み方・練習ガイドを読む</summary><p>右端が一の位。左へ十、百、千…と続きます。上の珠は1つで5、下の珠は1つで1。梁に寄せると数に入り、離すと数から外れます。</p><p>たし算・ひき算は、最初の数を置いてから珠を動かしても練習できます。かけ算・わり算は、計算した答えをそろばんに置いてください。ヒントで途中の考え方と答えの珠の置き方を確認できます。練習問題は整数・余りなしです。</p><button id="backToBoard" class="returnButton">そろばんに戻る</button></details><div class="kkp-ad" id="kkpAd" hidden><div class="kkp-ad-label">広告</div><ins class="adsbygoogle-later" style="display:block" data-ad-client="ca-pub-1298304917726270" data-ad-slot="2937937957" data-ad-format="rectangle" data-full-width-responsive="false"></ins></div><!-- 本の紹介（Amazonアソシエイト・2026-11-04。価格は書かない・読み放題は置いた日に商品ページで確認） --><section class="bk" id="kkpBook" hidden aria-labelledby="bk-h">  <h2 id="bk-h">家でそろばんを続ける本</h2>  <p class="bk-pr"><span>PR</span>Amazonのリンクです。Amazonのアソシエイトとして、web忍者の砦は適格販売により収入を得ています。</p>  <ul class="bk-list">    <li><a href="https://www.amazon.co.jp/dp/4023334367?tag=kkp15-22" target="_blank" rel="nofollow sponsored noopener" onclick="if(typeof gtag==='function')gtag('event','aff_amazon_book')"><b>動画つきでよくわかる そろばんの教科書</b><span>高柳和之・<em>読み放題の対象</em></span></a></li>    <li><a href="https://www.amazon.co.jp/dp/4780427290?tag=kkp15-22" target="_blank" rel="nofollow sponsored noopener" onclick="if(typeof gtag==='function')gtag('event','aff_amazon_book')"><b>いしど式でやさしく教える！ 小学生のそろばん 新版</b><span>石戸珠算学園・<em>読み放題の対象</em></span></a></li>  </ul>  <p class="bk-ku">「読み放題の対象」の本は読み放題で読めます（30日の無料体験あり・初めての人だけ）。<a href="https://www.amazon.co.jp/kindle-dbs/hz/signup?tag=kkp15-22" target="_blank" rel="nofollow sponsored noopener" onclick="if(typeof gtag==='function')gtag('event','aff_amazon_ku')">Kindle Unlimitedの無料体験</a></p></section></div><div class="miniWin" id="miniWin" aria-hidden="true">できた！</div><canvas id="confetti"></canvas><div class="toast" id="toast">大正解！</div>
 <section class="about"><h2>家でそろばんを独学できる、無料の練習サイト</h2>
 <p>塾に通わなくても、家で日本珠算連盟の10級〜7級の範囲を練習できます。模擬テストつき。登録は要りません。</p>
@@ -394,96 +395,7 @@ const practiceCheck=$('#check').onclick;$('#check').onclick=()=>{let was=solved;
  else{review.missed=true;let w=dstore.weak[review.key];if(w){w.n=Math.min(w.n+1,5);w.last=today();dsave()}$('#status').textContent+=` 考え方：${review.p.reason}`}};
 const practiceReset=$('#reset').onclick;$('#reset').onclick=()=>{if(mode==='practice'&&review&&!solved){setNum(review.p.start);$('#status').textContent=`${review.p.start} に戻しました。`;return}practiceReset()};
 if(/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname)||location.protocol==='file:')window.__soroban={SorobanDrill,get drill(){return drill},get store(){return dstore},startDrill};
-</script><script id="kentei-engine">
-// 検定（日本珠算連盟 10〜7級）の範囲の問題づくり・採点・珠の手順（DOMを使わない。検査スクリプトからも読む）
-// 範囲の出典（確認日 2026-10-02）: shuzan.jp/kentei/shuzan/ ・ /kentei/shuzan/kihon.html（基本的考え方）・ /kentei/mihon/ の問題見本PDF
-const SorobanKentei=(()=>{
-const ri=(a,b)=>Math.floor(Math.random()*(b-a+1))+a;
-const P=r=>10**(6-r),dig=(n,r)=>Math.floor(n/P(r))%10;
-const rnd=d=>ri(10**(d-1),10**d-1);
-const pad2=n=>String(n).padStart(2,'0');
-const MITORI9={n:10,kuchi:5,minus:1,pts:10},KAKE9={n:20,jitsu:2,hou:1,pts:5};
-const GRADES={
- '10':{name:'10級',same:'9',mitori:MITORI9,kake:KAKE9,wari:null,min:20,pass:60},
- '9':{name:'9級',same:'10',mitori:MITORI9,kake:KAKE9,wari:null,min:20,pass:120},
- '8':{name:'8級',mitori:{n:10,kuchi:8,minus:2,pts:10},kake:{n:10,jitsu:3,hou:1,pts:5},wari:{n:10,hou:1,shou:2,pts:5},min:20,pass:120},
- '7':{name:'7級',mitori:{n:10,kuchi:10,minus:3,pts:10},kake:{n:10,jitsu:2,hou:2,pts:5},wari:{n:10,hou:1,shou:3,pts:5},min:20,pass:120}
-};
-const ORDER=['10','9','8','7'];
-// みとり算10題のうち加減算は「前半2題・後半2題」（基本的考え方）。見本では No.3・5・7・9
-const MINUS_AT=[2,4,6,8];
-const KIND_NAME={mitori:'みとり算',kake:'かけ算',wari:'わり算'};
-// 2けた揃いの数を kuchi 口。minus 口をひき算に（3口目以降・途中の合計が負にならない）
-function mitori(kuchi,minus,digits){digits=digits||2;
- for(let tries=0;tries<500;tries++){let pos=new Set();while(pos.size<minus)pos.add(ri(2,kuchi-1));
-  let nums=[],sum=0,ok=true;for(let i=0;i<kuchi;i++){if(pos.has(i)){let lo=10**(digits-1);if(sum<lo){ok=false;break}let x=ri(lo,Math.min(10**digits-1,sum));nums.push(-x);sum-=x}else{let x=rnd(digits);nums.push(x);sum+=x}}
-  if(ok&&sum>0)return{kind:'mitori',nums,answer:sum,minus:minus>0}}
- throw Error('mitori')}
-function kake(jitsu,hou){let a=rnd(jitsu),b=hou===1?ri(2,9):rnd(hou);return{kind:'kake',a,b,answer:a*b}}
-function wari(hou,shou){let b=hou===1?ri(2,9):rnd(hou),q=rnd(shou);return{kind:'wari',a:b*q,b,answer:q}}
-function gen(g,kind,opt){const s=GRADES[g];opt=opt||{};
- if(kind==='mitori'){let m=s.mitori,minus=opt.minus===undefined?Math.random()<.4:opt.minus;return mitori(opt.kuchi||m.kuchi,minus?m.minus:0)}
- if(kind==='kake')return kake(s.kake.jitsu,s.kake.hou);
- if(kind==='wari'){if(!s.wari)throw Error('no wari');return wari(s.wari.hou,s.wari.shou)}
- throw Error('kind '+kind)}
-const key=p=>p.kind==='mitori'?p.nums.join(','):p.a+(p.kind==='kake'?'x':'/')+p.b;
-function text(p){if(p.kind==='mitori')return p.nums.map((x,i)=>i?(x<0?' − ':' ＋ ')+Math.abs(x):String(x)).join('');return `${p.a.toLocaleString('ja-JP')} ${p.kind==='kake'?'×':'÷'} ${p.b.toLocaleString('ja-JP')}`}
-function kinds(g){return GRADES[g].wari?['mitori','kake','wari']:['mitori','kake']}
-// 模擬テスト（1枚・一括施行）。No. は通し番号
-function makeTest(g){const s=GRADES[g],used=new Set(),items=[],sections=[];
- const uniq=f=>{for(let i=0;i<50;i++){let p=f();if(!used.has(key(p))){used.add(key(p));return p}}return f()};
- for(const kind of kinds(g)){let spec=s[kind],start=items.length;
-  for(let i=0;i<spec.n;i++){let p=kind==='mitori'?uniq(()=>mitori(spec.kuchi,MINUS_AT.includes(i)?spec.minus:0)):uniq(()=>gen(g,kind));p.no=items.length+1;p.pts=spec.pts;items.push(p)}
-  sections.push({kind,label:KIND_NAME[kind],from:start,to:items.length,max:spec.n*spec.pts})}
- return{grade:g,items,sections,min:s.min,max:sections.reduce((t,x)=>t+x.max,0)}}
-// 入力の読み取り（全角・カンマ・空白を許す）
-function parse(raw){if(raw===undefined||raw===null)return NaN;let s=String(raw).replace(/[０-９]/g,c=>String.fromCharCode(c.charCodeAt(0)-65248)).replace(/[,，、\s]/g,'');return /^\d+$/.test(s)?Number(s):NaN}
-function score(test,answers){let total=0,right=[];
- const secs=test.sections.map(sec=>{let got=0,ok=0;for(let i=sec.from;i<sec.to;i++){let p=test.items[i],r=parse(answers[i])===p.answer;right[i]=r;if(r){got+=p.pts;ok++}}total+=got;return{kind:sec.kind,label:sec.label,got,max:sec.max,ok,n:sec.to-sec.from}});
- const g=test.grade,s=GRADES[g];let reached=[];
- if(s.same){if(total>=GRADES['9'].pass)reached=['10','9'];else if(total>=GRADES['10'].pass)reached=['10']}else if(total>=s.pass)reached=[g];
- return{sections:secs,total,max:test.max,pass:s.pass,passed:total>=s.pass,reached,right}}
-// レベルチェック（約5分）。区切りごとに3問。2問以上できたら次の区切りへ
-function makeCheck(){const one=()=>ri(1,9);
- const nyumon=[()=>{let a=ri(3,9),b=ri(10-a,9);return{kind:'mitori',nums:[a,b],answer:a+b}},()=>{let a=ri(11,18),b=ri(a%10+1,9);return{kind:'mitori',nums:[a,-b],answer:a-b}},()=>{let a=ri(2,4),b=ri(5-a,4),c=ri(1,a+b-1);return{kind:'mitori',nums:[a,b,-c],answer:a+b-c}}];
- return[{key:'nyumon',label:'入門',items:nyumon.map(f=>f())},
-  {key:'10',label:'10級・9級',items:[mitori(3,0),kake(2,1),kake(2,1)]},
-  {key:'8',label:'8級',items:[mitori(5,1),kake(3,1),wari(1,2)]},
-  {key:'7',label:'7級',items:[mitori(6,2),kake(2,2),wari(1,3)]}]}
-// okCounts: 区切りごとの正解数（途中で終わったら短い配列）。最初に2問未満だった区切りから始める
-function recommend(okCounts){const keys=['nyumon','10','8','7'];for(let i=0;i<keys.length;i++){if(okCounts[i]===undefined||okCounts[i]<2)return keys[i]}return'test7'}
-// ---- 珠の手順（各手順のあとのそろばん全体の数 target。teii=定位点の棒） ----
-const ROD_NAME=['左から1本目','左から2本目','左から3本目','左から4本目','左から5本目','右から2本目','右端'];
-function placeName(r,teii){let k=teii-r;return k===0?'一の位':k===1?'十の位':k===2?'百の位':k===3?'千の位':k===4?'万の位':k<0?'定位点の右':'上の位'}
-function stepsMitori(nums){let cur=0,steps=[];
- nums.forEach((x,k)=>{let v=Math.abs(x),t=Math.floor(v/10)%10,o=v%10,h=Math.floor(v/100),word=x<0?'引く':'足す',lab=`${k+1}口目 ${k&&x>0?'＋':x<0?'−':''}${v}`;
-  if(h){cur+=Math.sign(x)*h*100;steps.push({text:`${lab}：百の位に ${h} を${word}`,target:cur,rods:[4]})}
-  if(t){cur+=Math.sign(x)*t*10;steps.push({text:`${lab}：十の位に ${t} を${word}`,target:cur,rods:[5],rod:5,v:t,minus:x<0})}
-  if(o){cur+=Math.sign(x)*o;steps.push({text:`${lab}：一の位に ${o} を${word}`,target:cur,rods:[6],rod:6,v:o,minus:x<0})}});
- return{start:0,teii:6,steps,read:n=>n}}
-// かけ算（定位法の一例）: 実の一の位を定位点から法のけた数だけ左に置き、実の一の位から順に「払って→法の左から九九の答えを2けたで足す」
-function stepsKake(a,b){const hd=String(b).length,jOnes=6-hd,as=String(a),bs=String(b);let cur=a*10**hd;
- const rodsA=as.split('').map((_,i)=>jOnes-(as.length-1-i));
- let steps=[{text:`法（かける数）${b} は ${hd}けた。実（かけられる数）${a} を、定位点から ${hd}つ左の棒が一の位になるように置く。`,target:cur,rods:rodsA}];
- for(let i=as.length-1;i>=0;i--){let d=+as[i],r=rodsA[i];
-  if(d===0){steps[steps.length-1].text+=` 実の${as.length-1-i===0?'一の位':'次の数字'}は 0 なので、とばす。`;continue}
-  cur-=d*P(r);steps.push({text:`実の ${d} を覚えて、払う。`,target:cur,rods:[r]});
-  bs.split('').forEach((fc,t)=>{let f=+fc,prod=d*f;if(!prod){steps[steps.length-1].text+=` ${d}×${f}＝00 なので、何も足さない。`;return}
-   cur+=prod*10**(5-(r+t));steps.push({text:`${d}×${f}＝${pad2(prod)}。${t===0?`${d} を払った棒`:`その${t}つ右の棒`}から、2けたで ${pad2(prod)} を足す。`,target:cur,rods:[r+t,r+t+1]})})}
- return{start:0,teii:6,steps,read:n=>n}}
-// わり算（定位法の一例・法1けた）: 定位点は右から3本目。わられる数は一の位を右端に置く（定位点から 法のけた数＋1 だけ右）
-function stepsWari(a,b){if(b>9)throw Error('法は1けたのみ');const teii=4,ten=10**(6-teii);let cur=a,rem=a;
- const as=String(a),rodsA=as.split('').map((_,i)=>6-(as.length-1-i));
- let steps=[{text:`わられる数 ${a.toLocaleString('ja-JP')} を、一の位が右端にくるように置く。答えは定位点（右から3本目）を一の位にして読む。`,target:a,rods:rodsA}];
- for(let guard=0;rem>0&&guard<20;guard++){let h=0;while(dig(rem,h)===0)h++;let d=dig(rem,h),s,part,why;
-  if(d>=b){s=h-2;part=d;why=`頭の ${d} は ${b} 以上。商は ${d} の2つ左に立てる。`}else{s=h-1;part=d*10+dig(rem,h+1);why=`頭の ${d} は ${b} より小さい。${part} で考えて、商は ${d} のすぐ左に立てる。`}
-  let q=Math.floor(part/b);cur+=q*P(s);steps.push({text:`${why} ${part}÷${b} → ${q}。`,target:cur,rods:[s]});
-  let val=q*b*10**(4-s);cur-=val;rem-=val;steps.push({text:`${q}×${b}＝${pad2(q*b)}。商の右隣から、2けたで ${pad2(q*b)} を引く。`,target:cur,rods:[s+1,s+2]})}
- return{start:0,teii,steps,read:n=>n/ten}}
-function steps(p){return p.kind==='mitori'?stepsMitori(p.nums):p.kind==='kake'?stepsKake(p.a,p.b):stepsWari(p.a,p.b)}
-return{GRADES,ORDER,MINUS_AT,KIND_NAME,gen,mitori,kake,wari,makeTest,score,parse,makeCheck,recommend,steps,text,key,kinds,dig,P,placeName,ROD_NAME}
-})();
-</script><script id="course-ui">
+</script><script id="kentei-engine" src="/kentei.js?v=20261104"></script><script id="course-ui">
 // 検定の道（日珠連 10〜7級）: レベルチェック → 道のり → 各級の「学ぶ・練習・模擬テスト」
 const K=SorobanKentei,CKEY='soroban-course-v1';
 let cstore={check:null,stats:{},tests:[],learned:{},seen:{}};
@@ -599,7 +511,7 @@ function paintGrade(){const g=cgrade,s=K.GRADES[g];
  bindGo();cEl.querySelectorAll('.cSeg [data-sub]').forEach(b=>b.onclick=()=>{stopTimer();if(ktest&&ktest.state==='run'&&b.dataset.sub!=='test'){if(!confirm('模擬テストをやめますか？（採点されません）'))return;ktest=null}walk=null;csub=b.dataset.sub;setTeii(null);clearGuide();paintGrade()});
  if(csub==='learn')paintLearn();else if(csub==='practice')paintPractice();else paintTest()}
 function gradeSummary(g){const s=K.GRADES[g];let w=s.wari;
- return`<p class="st">日本珠算連盟の${s.name}の範囲に合わせた練習${s.same?`（${K.GRADES[s.same].name}と同じ問題）`:''}</p><p class="cInfo">${s.mitori.n}題 みとり算（${s.mitori.pts}点ずつ）・${s.kake.n}題 かけ算${w?`・${w.n}題 わり算`:''}（${s.kake.pts}点ずつ）。全部で${s.min}分、200点満点。${s.same?`120点以上で9級、60点以上で10級。`:`${s.pass}点以上で合格。`}</p>`}
+ return`<p class="st">日本珠算連盟の${s.name}の範囲に合わせた練習${s.same?`（${K.GRADES[s.same].name}と同じ問題）`:''}</p><p class="cInfo">${s.mitori.n}題 みとり算（${s.mitori.pts}点ずつ）・${s.kake.n}題 かけ算${w?`・${w.n}題 わり算`:''}（${s.kake.pts}点ずつ）。全部で${s.min}分、200点満点。${s.same?`120点以上で9級、60点以上で10級。`:`${s.pass}点以上で合格。`}</p><p class="cPrint"><a href="/print/?g=${g}">${s.name}の練習プリント（紙に印刷・答えつき）</a></p>`}
 const HOW={
  mitori:g=>{const m=K.GRADES[g].mitori;return[`2けたの数が${m.kuchi}口。上から1口ずつ、前の答えに続けて足していきます。`,`10題のうち4題は、途中に「−」のついた数が${m.minus}口まじります（日珠連の問題見本と同じ数）。−の数は引きます。`,'2けたの数は、十の位→一の位の順に入れます。引くときも十の位から。','5や10を使う足し引きは「はじめて」のレッスン6〜9と同じ動きです。']},
  kake:g=>{const k=K.GRADES[g].kake;return[`${k.jitsu}けた×${k.hou}けたのかけ算。かけられる数を「実（じつ）」、かける数を「法（ほう）」と呼びます。`,'白い点（定位点）の棒を、答えの一の位にします。かけ算では右端です。',`実を、定位点から法のけた数だけ左の棒が一の位になるように置きます（法が${k.hou}けたなので${k.hou}つ左）。`,'実の一の位の数字から順に、その数字を覚えて払い、法の左の数字から順にかけた九九の答えを2けたで足します。1つ目の九九は払った棒から、2つ目はその1つ右の棒から。','実を全部払ったら、定位点を一の位にして答えを読みます。']},
